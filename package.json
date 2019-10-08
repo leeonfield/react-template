@@ -12,6 +12,7 @@
     "redux": "^4.0.4"
   },
   "scripts": {
+    "fix": "eslint --fix --ext .js,.jsx src/",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
