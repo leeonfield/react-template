@@ -2,10 +2,10 @@
 
 ```shell
 # 开发
-npm i react-router react-router-dom redux -S
+npm i antd react-router react-router-dom redux -S
 
 # 构建
-npm i react-app-rewired customize-cra eslint-plugin-prettier -D
+npm i react-app-rewired customize-cra eslint-plugin-prettier babel-plugin-import node-sass less less-loader -D
 
 ```
 
@@ -19,11 +19,13 @@ const {
   useEslintRc,
   addDecoratorsLegacy,
   addWebpackAlias,
+  addLessLoader,
 } = require('customize-cra')
 const config = override(
   addDecoratorsLegacy(),
   useBabelRc(),
   useEslintRc(),
+  addLessLoader({ javascriptEnabled: true }),
   addWebpackAlias({
     ['@']: path.resolve(__dirname, 'src/'),
   }),
