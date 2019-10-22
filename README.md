@@ -5,7 +5,7 @@
 npm i antd react-router react-router-dom redux react-redux redux-promise -S
 
 # 构建
-npm i react-app-rewired customize-cra eslint-plugin-prettier babel-plugin-import node-sass less less-loader -D
+npm i react-app-rewired customize-cra eslint-plugin-prettier babel-plugin-import node-sass less less-loader prettier @babel/plugin-proposal-decorators -D
 
 ```
 
@@ -20,19 +20,27 @@ const {
   addDecoratorsLegacy,
   addWebpackAlias,
   addLessLoader,
+  fixBabelImports,
 } = require('customize-cra')
 const config = override(
   addDecoratorsLegacy(),
   useBabelRc(),
   useEslintRc(),
-  addLessLoader({ javascriptEnabled: true }),
+  fixBabelImports('import', {
+    libraryName: 'antd',
+    libraryDirectory: 'es',
+    style: 'css',
+  }),
+  addLessLoader({
+    javascriptEnabled: true,
+    modifyVars: { '@primary-color': '#1DA57A' },
+  }),
   addWebpackAlias({
     ['@']: path.resolve(__dirname, 'src/'),
   }),
 )
 
 module.exports = config
-
 ```
 
 ## script 复写
