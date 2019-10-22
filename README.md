@@ -2,7 +2,7 @@
 
 ```shell
 # 开发
-npm i antd react-router react-router-dom redux react-redux -S
+npm i antd react-router react-router-dom redux react-redux redux-promise -S
 
 # 构建
 npm i react-app-rewired customize-cra eslint-plugin-prettier babel-plugin-import node-sass less less-loader -D
